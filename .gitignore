@@ -1,2 +1,7 @@
 __pycache__
 *.swp
+build/
+dist/
+test.spec
+parse-nagios-status.spec
+.venv
