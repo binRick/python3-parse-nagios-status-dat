@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-import re, json
+import re, json, os
 STATUS_FILE_PATH = "/var/log/nagios/status.dat"
 
 def read_status():
+    if not os.path.exists(STATUS_FILE_PATH):
+        raise Exception("Unable to read file {}".format(STATUS_FILE_PATH))
     hosts = {}
     services = {}
     fh = open(STATUS_FILE_PATH)
