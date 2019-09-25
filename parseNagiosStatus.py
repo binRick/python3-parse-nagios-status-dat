@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re, json, os
 import parse_nagios
 
