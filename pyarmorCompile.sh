@@ -10,7 +10,7 @@ pip install pip --upgrade
 pip install pyarmor \
             pyinstaller \
             git+ssh://git@github.com/binRick/python3-parse-nagios-status-dat.git@master \
-            requests
+            requests urllib3 halo
 
 time pyarmor pack -e " --onefile " -O PACKED -t PyInstaller --clean parseNagiosStatus.py
 
