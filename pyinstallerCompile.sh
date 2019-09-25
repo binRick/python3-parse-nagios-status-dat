@@ -14,5 +14,5 @@ pyinstaller \
         parseNagiosStatus.py
 
 
-mv dist/parseNagiosStatus parseNagiosStatus
+mv dist/parseNagiosStatus parseNagiosStatus-pyinstaller
 rm -rf build dist test.spec __pycache__

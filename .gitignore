@@ -11,3 +11,5 @@ parse-nagios-status.spec
 *.c
 parse-nagios-status
 parseNagiosStatus
+parseNagiosStatus-cython
+parseNagiosStatus-pyinstaller
