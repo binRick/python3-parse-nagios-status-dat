@@ -5,3 +5,4 @@ dist/
 test.spec
 parse-nagios-status.spec
 .venv
+*.pyo
