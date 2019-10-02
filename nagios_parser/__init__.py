@@ -1,4 +1,4 @@
-import re, json
+import re, json, os, sys
 STATUS_FILE_PATH = "/var/log/nagios/status.dat"
 
 def read_status():
@@ -23,6 +23,14 @@ def read_status():
         if def_type == "hoststatus":
             data['services'] = []
             hosts[data['host_name']] = data
+    HOSTS = []
+    SERVICES = []
+    for k in hosts.keys():
+        HOSTS.append(hosts[k])
+    hosts = HOSTS
+    for k in services.keys():
+        SERVICES.append(services[k])
+    services = SERVICES
     return {
         'hosts': hosts,
         'services': services,

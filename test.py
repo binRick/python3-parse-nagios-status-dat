@@ -1,4 +1,4 @@
 #!/usr/bin/env python3
-import nagios_parser
+import os, json, nagios_parser
 
-print(nagios_parser.read_status())
+print(json.dumps(nagios_parser.read_status()))
