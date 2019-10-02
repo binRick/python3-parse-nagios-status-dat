@@ -26,7 +26,7 @@ def read_status():
     return {
         'hosts': hosts,
         'services': services,
-        'programstatus': programstatus,
+        'programStatus': programstatus,
     }
 
 if __name__ == "__main__":
