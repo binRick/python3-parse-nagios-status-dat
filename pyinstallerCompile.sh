@@ -5,7 +5,8 @@ python3 -m venv .venv
 rm -rf build dist test.spec parseNagiosStatus
 source .venv/bin/activate
 pip install pip --upgrade
-#pip install pyinstaller PyCrypto
+pip install pyinstaller
+#pip install  PyCrypto
 pip install pycryptodome
 
 pyinstaller \
