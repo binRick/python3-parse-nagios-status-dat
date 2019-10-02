@@ -1,9 +1,10 @@
 #!/bin/bash
 rm -rf .venv-cython
 set -e
-python -m venv .venv-cython
+python3 -m venv .venv-cython
 source .venv-cython/bin/activate
 pip install pip --upgrade
+pip install git+$(git config --get remote.origin.url)
 pip install Cython
 rm -rf parseNagiosStatus.c parseNagiosStatus
 cython -3 --embed -o parseNagiosStatus.c parseNagiosStatus.py
