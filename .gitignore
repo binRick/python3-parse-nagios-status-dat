@@ -13,3 +13,4 @@ parse-nagios-status
 parseNagiosStatus
 parseNagiosStatus-cython
 parseNagiosStatus-pyinstaller
+.attic/
