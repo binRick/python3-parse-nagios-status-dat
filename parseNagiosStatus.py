@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import re, json, os
+import re, json, os, requests, urllib3
 import parse_nagios
 
 if __name__ == "__main__":
