@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import re, json
 STATUS_FILE_PATH = "/var/log/nagios/status.dat"
 
@@ -12,7 +11,11 @@ def read_status():
     for def_type, data in matches:
         lines = [line.strip() for line in data.split("\n")]
         pairs = [line.split("=", 1) for line in lines if line != '']
-        data = dict(pairs)
+        P = []
+        for p in pairs:
+            if len(p) == 2:
+               P.append(p)
+        data = dict(P)
         if def_type == "servicestatus":
             services[data['service_description']] = data
             if 'host_name' in data:
