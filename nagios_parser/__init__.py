@@ -2,8 +2,9 @@ import re, json, os, sys
 STATUS_FILE_PATH = "/var/log/nagios/status.dat"
 
 def read_status():
-    hosts = {}
-    services = {}
+    hosts = []
+    services = []
+    programstatus = {}
     fh = open(STATUS_FILE_PATH)
     status_raw = fh.read()
     pattern = re.compile('([\w]+)\s+\{([\S\s]*?)\}',re.DOTALL)
@@ -17,23 +18,15 @@ def read_status():
                P.append(p)
         data = dict(P)
         if def_type == "servicestatus":
-            services[data['service_description']] = data
-            if 'host_name' in data:
-                hosts[data['host_name']]['services'].append(data)
+            services.append(data)
         if def_type == "hoststatus":
-            data['services'] = []
-            hosts[data['host_name']] = data
-    HOSTS = []
-    SERVICES = []
-    for k in hosts.keys():
-        HOSTS.append(hosts[k])
-    hosts = HOSTS
-    for k in services.keys():
-        SERVICES.append(services[k])
-    services = SERVICES
+            hosts.append(data)
+        if def_type == "programstatus":
+            programstatus = data
     return {
         'hosts': hosts,
         'services': services,
+        'programstatus': programstatus,
     }
 
 if __name__ == "__main__":
