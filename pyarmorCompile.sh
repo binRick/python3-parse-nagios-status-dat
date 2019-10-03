@@ -9,7 +9,15 @@ source .venv-pyarmor/bin/activate
 pip install pip --upgrade
 pip install pyarmor pyinstaller \
             git+ssh://git@github.com/binRick/python3-parse-nagios-status-dat.git@master \
-            requests urllib3 halo
+            requests urllib3 halo ansible
+
+pyarmor -v
+if [ "$PYARMOR_CODE" != "" ]; then
+    echo "Registering pyArmor Code.."
+    pyarmor register $PYARMOR_CODE
+    pyarmor -v
+fi
+
 
 time pyarmor pack -e " --onefile " -O PACKED -t PyInstaller --clean parseNagiosStatus.py
 
