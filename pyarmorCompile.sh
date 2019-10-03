@@ -8,7 +8,7 @@ python3 -m venv .venv-pyarmor
 source .venv-pyarmor/bin/activate
 pip install pip --upgrade
 pip install pyarmor pyinstaller \
-            git+ssh://git@github.com/binRick/python3-parse-nagios-status-dat.git@master \
+            git+https://github.com/binRick/python3-parse-nagios-status-dat.git@master \
             requests urllib3 halo ansible
 
 pyarmor -v
