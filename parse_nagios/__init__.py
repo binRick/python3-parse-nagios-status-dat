@@ -1,5 +1,8 @@
 import re, json, os
-_STATUS_FILE_PATH = "/var/log/nagios/status.dat"
+if 'NAGIOS_STATUS_FILE_PATH' in os.environ.keys():
+    _STATUS_FILE_PATH = os.environ['NAGIOS_STATUS_FILE_PATH']
+else:
+    _STATUS_FILE_PATH = "/var/log/nagios/status.dat"
 
 def read_status(STATUS_FILE_PATH=_STATUS_FILE_PATH):
     if not os.path.exists(STATUS_FILE_PATH):
